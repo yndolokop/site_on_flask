@@ -43,8 +43,7 @@ def plot_cloud(wordcloud):
 STOPWORDS_RU = get_stop_words('russian')
 
 # Генерируем облако слов
-wordcloud = WordCloud(width=380,
-                      height=1500,
+wordcloud = WordCloud(width=380,                      height=1500,
                       random_state=1,
                       background_color='black',
                       margin=20,
