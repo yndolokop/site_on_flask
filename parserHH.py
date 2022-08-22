@@ -1,8 +1,7 @@
-
+import csv
 import requests
 import pprint
 import json
-
 
 # url = 'https://api.hh.ru/vacancies'
 url = f'https://api.hh.ru/vacancies?specialization=1'  # "id":"1","name":"Информационные технологии, интернет, телеком"
@@ -14,7 +13,7 @@ area = 1
 def total_vacancy(skill):
     params = {'text': f"NAME:({skill})", 'area': f'{area}', 'page': f'{page}'}
     result_total_vacancies = requests.get(url, params=params).json()
-    total_vacancies = dict(keyword=skill, count=result_total_vacancies['found'])
+    total_vacancies = dict(a_name=skill, count=result_total_vacancies['found'])
 
     return total_vacancies
 
@@ -40,18 +39,15 @@ def skills_search(skill):
         params = {'text': f"NAME:({skill}) AND DESCRIPTION:({i})", 'area': f"{area}", 'page': f'{page}'}
         result_vacancies = requests.get(url, params=params).json()
         num_of_one_skill = result_vacancies['found']
-        a = dict(name=i, count=num_of_one_skill, percent='{0:.1f}'.format(100 * num_of_one_skill / total_vacancy(skill)['count']))
+        a = dict(name=i, count=num_of_one_skill,
+                 percent='{0:.1f}'.format(100 * num_of_one_skill / total_vacancy(skill)['count']))
         final_list_of_counts.append(a)
-
-    return sorted(final_list_of_counts, key=lambda x: x['count'], reverse=True)
+    requirements = sorted(final_list_of_counts, key=lambda x: x['count'], reverse=True)
+    return requirements
 
 
 if __name__ == '__main__':
-    # b = dict(total_vacancy('аналитик'), requirements=skills_search('аналитик'))
-    # pprint.pprint(b)
-    a=skills_search('sql')
-    print(a)
-    b=total_vacancy('sql')
-    print(b)
+    b = dict(total_vacancy('python'), requirements=skills_search('python'))
+    pprint.pprint(b)
     with open('skills_list_count.json', 'w') as f:
         json.dump(b, f)
