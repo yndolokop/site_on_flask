@@ -1,6 +1,9 @@
 {% extends "base.html" %}
-{% block title %}Home Page{% endblock %}
+{% block title %}
+{{ super() }}
+Home Page{% endblock %}
 {% block content %}
+
     <div class="container-md border border-1 border-light">
         <div class="mt-4">
             <h2>Парсер вакансий по навыкам на hh.ru</h2>
@@ -15,12 +18,9 @@
             все вакансии на hh.ru. При выборе искать 'везде' - поиск будет осуществляться по всем сферам деятельности.</p>
         <p>Парсер отсортирует все навыки, которые были найдены по ключевому слову во всех вакансиях по нисходящей
             от более востребованных к менее востребованным.</p>
-        {{ dict_of_skills }}
-
     </div>
     <div class="container-md border border-1 border-light">
-        <a href="/form/" class="btn btn-info" role="button">Начать поиск</a>
-
+        <a href="/run/" class="btn btn-info" role="button">Начать поиск</a>
     </div>
 
 

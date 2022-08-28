@@ -1,6 +1,33 @@
 {% extends "base.html" %}
-{% block title %}Contacts{% endblock %}
+{% block title %}
+{{ super() }}
+Contacts{% endblock %}
 {% block content %}
-<div class="container-md mt-2">Контакты</div>
+<!--код flask для отображения flash сообщений-->
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="container-md mt-2">
+<div class="flash {{cat}}">{{msg}}</div>
+</div>
+{% endfor %}
 
+<div class="container-md mt-2">
+  <form method="POST">
+      <div class="mb-3">
+        <label class="form-label">Имя: </label>
+        <input type="text" class="form-control" name="username" value=""/>
+        <label class="form-label">Email: </label>
+        <input type="email" class="form-control" name="email" value=""/>
+      </div>
+      <div class="mb-3">
+        <label for="floatingTextarea2">Comments</label>
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+  </form>
+</div>
+
+</div>
 {% endblock %}
+
