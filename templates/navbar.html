@@ -6,10 +6,7 @@
         <a class="navbar-brand" href="/" >
           <img src="{{url_for('static', filename='images/logo.svg')}}" alt="" width="50" height="38" >
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
@@ -23,14 +20,14 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link " href="{{url_for('contacts')}}" aria-expanded="false">
-                Контакты</a>
+                Обратная связь</a>
             </li>
 
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Поиск по сайту" aria-label="Поиск">
-            <button class="btn btn-outline-success" type="submit">Найти</button>
-          </form>
+          <div class="d-flex">
+<!--            <button class="btn btn-outline-success" type="submit">Войти</button>-->
+            <a href="/login/" class="btn btn-outline-success" role="button">Войти</a>
+          </div>
         </div>
       </div>
     </nav>

@@ -13,18 +13,17 @@
         <title>Про Flask</title>
     {% endif %}
 {% endblock %}
+
 <!--Вставка для стилей flash сообщений-->
 {% block styles %}
-<link rel="stylesheet"
-      href="{{url_for('static', filename='custom_css/flashstyle.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='custom_css/flashstyle.css')}}">
 {% endblock %}
-
 </head>
 <body>
     {% include 'navbar.html' %}
 <div>
     {% block content %}
-    hi
+
     {% endblock %}
 </div>
 
