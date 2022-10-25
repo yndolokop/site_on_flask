@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block title -%}
+    {% if title %}
+    <title>Про Flask - {{title}}</title>
+    {% else %}
+    <title>Про Flask</title>
+    {% endif %}
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+</head>
+<body>
+{% if menu -%}
+	<ul class="mainmenu">
+	{% for p in menu %}
+	<li><a href="{{ url_for(p.url) }}">{{p.title}}</a></li>
+	{% endfor %}
+	</ul>
+	<div class="clear"></div>
+{%- endif -%}
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+<script src="{{url_for('.static', filename='js//admin_js.css')}}"></script>
+
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+</html>

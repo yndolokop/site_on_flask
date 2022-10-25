@@ -2,7 +2,7 @@ import requests
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 from stop_words import get_stop_words
-from parserHH import list_of_skills
+
 
 # wikipedia.set_lang("ru")
 # wiki = wikipedia.page('Гарри Поттер')
@@ -12,10 +12,10 @@ from parserHH import list_of_skills
 # text = re.sub(r'==.*?==+', '', text)  # удаляем лишние символы
 # text = text.replace('\n', '')  # удаляем знаки разделения на абзацы
 
-url = f'https://api.hh.ru/vacancies?specialization=1'  # "id":"1","name":"Информационные технологии, интернет, телеком"
+url = f'https://api.hh.ru/vacancies?'  # "id":"1","name":"Информационные технологии, интернет, телеком"
 # skill = 'sql'
-page = 1
-area = 1
+# page = 1
+# area = 1
 
 
 def plot_cloud(wordcloud):

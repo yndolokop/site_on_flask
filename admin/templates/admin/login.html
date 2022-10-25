@@ -1,0 +1,38 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}
+{{ super() }}
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('.static', filename='css/styles.css')}}">
+{% endblock %}
+
+{% block content %}
+<!--код flask для отображения flash сообщений-->
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+    <div class="wrapper">
+      <div class="title-text">
+        <div class="title login">Админ-панель</div>
+      </div>
+      <div class="form-container">
+        <div class="form-inner">
+          <form action="" class="login" method="POST">
+            <div class="field">
+              <input type="text" placeholder="Имя: " name="user"required>
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Пароль: " name="psw" required>
+            </div>
+
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Войти">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+{% endblock %}

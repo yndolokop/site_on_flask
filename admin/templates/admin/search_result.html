@@ -1,0 +1,27 @@
+{% extends "admin/admin_base.html" %}
+
+{% block content %}
+{{ super() }}
+<h1>{{title}}</h1>
+
+
+    <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Навык</th>
+        <th>Упоминаний всего</th>
+        <th>Упоминаний в %</th>
+      </tr>
+    </thead>
+    <tbody>
+       {% for p in list %}
+        <tr>
+          <td>{{ p.name }}</td>
+          <td>{{ p.count }}</td>
+          <td>{{ p.percent }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

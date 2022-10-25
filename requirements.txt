@@ -1,0 +1,9 @@
+Flask
+Flask-Login
+Flask-WTF
+WTForms
+Werkzeug
+email-validator
+requests
+stop-words
+wordcloud

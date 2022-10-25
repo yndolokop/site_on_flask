@@ -73,7 +73,7 @@ print(data)
 
 
 # Connecting to the geeks database
-connection = sqlite3.connect('db/hh.sqlite')
+connection = sqlite3.connect('../db/hh.sqlite')
 
 # Creating a cursor object to execute
 # SQL queries on a database table

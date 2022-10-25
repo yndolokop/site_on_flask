@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}
 {{ super() }}
-Form{% endblock %}
+{% endblock %}
 {% block content %}
 <!--код flask для отображения flash сообщений-->
 {% for cat, msg in get_flashed_messages(True) %}
@@ -13,31 +13,27 @@ Form{% endblock %}
 
 </div>
 <div class="container-md mt-2">
-  <form method="post" class="row gx-3 gy-2 align-items-center">
+  <form method="POST" class="row gx-3 gy-2 align-items-center">
 
     <div class="col">
 
-      <select class="form-select">
+      <select name="search_by_field" class="form-select" >
         <option selected>Выбрать область деятельности</option>
-        <option value="1">Информационные технологии, интернет, телеком</option>
-        <option value="2">Строительство, недвижимость</option>
-        <option value="3">везде</option>
+        {% for field in drop_list %}
+        <option value="{{field.name}}">{{field.name}}</option>
+        {% endfor %}
       </select>
     </div>
-    <div class="col">
 
-      <select class="form-select">
-        <option selected>Выбрать регион</option>
-        <option value="1">Питер</option>
-        <option value="2">Москва</option>
-        <option value="3">везде</option>
-      </select>
+    <div class="col">
+<input  type="text" class="form-control" name="region" placeholder="регион, край, город, поселок...">
     </div>
+
     <div class="col">
       <input  type="text" class="form-control" name="search_by" placeholder="профессия, должность. занятие...">
     </div>
 
-    <div class="col-auto ">
+    <div class="col-auto">
       <button class="btn btn-outline-success" type="submit"><b>Отправить</b></button>
     </div>
   </form>
